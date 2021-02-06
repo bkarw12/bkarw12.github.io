@@ -9,5 +9,12 @@ let updateFields = () => {
 };
 
 let randomizeFields = seed => {
-    
+
+};
+
+let getRandomSeed = function() {
+    let getRandomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
+
+    let letters = new Array(4).fill().map(getRandomLetter);
+    return letters.join("");
 };
