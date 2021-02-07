@@ -19,8 +19,12 @@ RNG.prototype.nextInt = function() {
     return this.state;
 }
 
-RNG.prototype.stringToSeed = function() {
-
+RNG.prototype.stringToSeed = function(seed) {
+    let x = 1;
+    for (let i = 0; i < seed.length; i++) {
+        x = this.f(x * seed.charCodeAt(i), this.a, this.c, this.m);
+    }
+    return x;
 }
 
 
