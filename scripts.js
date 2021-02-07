@@ -3,7 +3,7 @@ let GRID_COL = 5;
 let SEED_LENGTH = 4;
 
 
-let RNG = function(seed) {
+RNG = function(seed) {
     // LCG using GCC's constants
     this.m = 0x80000000; // 2**31;
     this.a = 1103515245;
@@ -12,8 +12,10 @@ let RNG = function(seed) {
     this.state = seed ? seed : Math.floor(Math.random() * (this.m - 1));
 }
 
+RNG.prototype.f = (x, a, c, m) => (x * a + c) % m;
+
 RNG.prototype.nextInt = function() {
-    this.state = (this.a * this.state + this.c) % this.m;
+    this.state = this.f(this.state, this.a, this.c, this.m);
     return this.state;
 }
 
