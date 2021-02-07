@@ -3,7 +3,7 @@ let GRID_COL = 5;
 let SEED_LENGTH = 4;
 
 
-let RNG = seed => {
+let RNG = function (seed) {
     // LCG using GCC's constants
     this.m = 0x80000000; // 2**31;
     this.a = 1103515245;
@@ -33,7 +33,7 @@ let randomizeFields = seed => {
 
 };
 
-let getRandomSeed = function() {
+let getRandomSeed = () => {
     let getRandomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
 
     let letters = new Array(SEED_LENGTH).fill().map(getRandomLetter);
