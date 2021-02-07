@@ -3,7 +3,7 @@ let GRID_COL = 5;
 let SEED_LENGTH = 4;
 
 
-let RNG = function (seed) {
+let RNG = function(seed) {
     // LCG using GCC's constants
     this.m = 0x80000000; // 2**31;
     this.a = 1103515245;
@@ -12,12 +12,12 @@ let RNG = function (seed) {
     this.state = seed ? seed : Math.floor(Math.random() * (this.m - 1));
 }
 
-RNG.prototype.nextInt = () => {
+RNG.prototype.nextInt = function() {
     this.state = (this.a * this.state + this.c) % this.m;
     return this.state;
 }
 
-RNG.prototype.stringToSeed = () => {
+RNG.prototype.stringToSeed = function() {
 
 }
 
@@ -25,15 +25,15 @@ RNG.prototype.stringToSeed = () => {
 let container = document.getElementById("container");
 let fields = new Array(GRID_ROW * GRID_COL);
 
-let updateFields = () => {
+let updateFields = function() {
     container.innerHTML = "";
 };
 
-let randomizeFields = seed => {
+let randomizeFields = function(seed) {
 
 };
 
-let getRandomSeed = () => {
+let getRandomSeed = function() {
     let getRandomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
 
     let letters = new Array(SEED_LENGTH).fill().map(getRandomLetter);
