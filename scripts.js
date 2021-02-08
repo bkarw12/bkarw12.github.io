@@ -66,9 +66,7 @@ let randomizeSeed = function() {
     randomizeFields(seed);
 };
 
-let seed = getRandomSeed();
-seedInput.value = seed;
-randomizeFields(seed);
+randomizeSeed();
 
 seedInput.addEventListener('input', updateSeed);
 seedButton.addEventListener('click', randomizeSeed);
