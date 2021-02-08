@@ -9,6 +9,8 @@ const P2_G = [6, 7, 8, 9, 10, 11, 12, 13, 14];
 const P1_B = [14, 15, 16];
 const P2_B = [0, 16, 24];
 
+const COLORS = ["beige", "green", "black"];
+
 // LCG using GCC's constants
 const M = 0x80000000; // 2**31;
 const A = 1103515245;
@@ -68,12 +70,16 @@ RNG.prototype.shuffleArray = function(arr) {
 ////////////////////////////////////////////
 // Main functions connected to the HTML view
 ////////////////////////////////////////////
-let container = document.getElementById("container");
+let board = document.getElementById("board");
 let seedInput = document.getElementById("seed-input");
 let seedButton = document.getElementById("seed-button");
 
 let updateFields = function() {
-    container.innerHTML = "";
+    board.innerHTML = "";
+
+    for (let i = 0; i < GRID_ROW * GRID_COL; i++) {
+        board.innerHTML += '<div class="field" style="background-color:' + COLORS[fields1[i]] + ';"></div>';
+    }
 };
 
 let randomizeFields = function(seed) {
