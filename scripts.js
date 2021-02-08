@@ -34,6 +34,15 @@ RNG.prototype.nextRange = function(start, end) {
     var randomUnder1 = this.nextInt() / M;
     return start + Math.floor(randomUnder1 * rangeSize);
 }
+/* Randomize array in-place using Durstenfeld shuffle algorithm */
+RNG.prototype.shuffleArray = function(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        let j = this.nextRange(0, i + 1);
+        let temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+}
 
 
 let container = document.getElementById("container");
