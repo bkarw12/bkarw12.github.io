@@ -12,9 +12,10 @@
 }
 
 #board {
-    /* width: 50%; */
-    width: 500px;
-    height: 500px;
+    width: 80%;
+    max-width: 800px;
+    background-color: black;
+    border-radius: 20px;
     margin: auto;
     border: 3px solid black;
     display: grid;
@@ -22,3 +23,8 @@
     grid-template-rows: 20% 20% 20% 20% 20%;
 }
 
+.field {
+    border: 5px solid black;
+    border-radius: 20px;
+    padding-top: 75%;
+}
