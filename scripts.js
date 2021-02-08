@@ -11,7 +11,7 @@ const P1_B = [14, 15, 16];
 const P2_B = [0, 16, 24];
 
 const COLORS = ["beige", "green", "black"];
-const SEED_LENGTH = 4;
+const SEED_LENGTH = 6;
 
 // LCG using GCC's constants
 const M = 0x80000000; // 2**31;
