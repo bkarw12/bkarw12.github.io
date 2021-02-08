@@ -37,15 +37,8 @@ RNG.prototype.nextRange = function(start, end) {
 
 
 let container = document.getElementById("container");
+let seedInput = document.getElementById("seed-input");
 let fields = new Array(GRID_ROW * GRID_COL);
-
-let updateFields = function() {
-    container.innerHTML = "";
-};
-
-let randomizeFields = function(seed) {
-
-};
 
 let getRandomSeed = function() {
     let getRandomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
@@ -53,3 +46,20 @@ let getRandomSeed = function() {
     let letters = new Array(SEED_LENGTH).fill().map(getRandomLetter);
     return letters.join("");
 };
+
+let updateFields = function() {
+    container.innerHTML = "";
+};
+
+let randomizeFields = function(seed) {
+    let rng = new RNG(seed);
+
+    console.log(seed);
+};
+
+let updateSeed = e => randomizeFields(e.target.value);
+
+let seed = getRandomSeed();
+seedInput.value = seed;
+randomizeFields(seed);
+seedInput.addEventListener('input', updateSeed);
