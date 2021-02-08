@@ -3,13 +3,15 @@
 ////////////
 const GRID_ROW = 5;
 const GRID_COL = 5;
-const SEED_LENGTH = 4;
+const GRID_SIZE = GRID_ROW * GRID_COL;
+
 const P1_G = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 const P2_G = [6, 7, 8, 9, 10, 11, 12, 13, 14];
 const P1_B = [14, 15, 16];
 const P2_B = [0, 16, 24];
 
 const COLORS = ["beige", "green", "black"];
+const SEED_LENGTH = 4;
 
 // LCG using GCC's constants
 const M = 0x80000000; // 2**31;
@@ -77,7 +79,7 @@ let seedButton = document.getElementById("seed-button");
 let updateFields = function() {
     board.innerHTML = "";
 
-    for (let i = 0; i < GRID_ROW * GRID_COL; i++) {
+    for (let i = 0; i < GRID_SIZE; i++) {
         board.innerHTML += '<div class="field" style="background-color:' + COLORS[fields1[i]] + ';"></div>';
     }
 };
@@ -85,10 +87,10 @@ let updateFields = function() {
 let randomizeFields = function(seed) {
     let rng = new RNG(stringToSeed(seed));
 
-    fields1 = new Array(GRID_ROW * GRID_COL).fill(0);
-    fields2 = new Array(GRID_ROW * GRID_COL).fill(0);
+    fields1 = new Array(GRID_SIZE).fill(0);
+    fields2 = new Array(GRID_SIZE).fill(0);
 
-    let ids = new Array(GRID_ROW * GRID_COL).fill().map((_, i) => i);
+    let ids = new Array(GRID_SIZE).fill().map((_, i) => i);
     rng.shuffleArray(ids);
 
     // Setup the board
