@@ -30,17 +30,15 @@ RNG.prototype.nextFloat = function() {
 RNG.prototype.nextRange = function(start, end) {
     // returns in range [start, end): including start, excluding end
     // can't modulu nextInt because of weak randomness in lower bits
-    var rangeSize = end - start;
-    var randomUnder1 = this.nextInt() / M;
+    let rangeSize = end - start;
+    let randomUnder1 = this.nextInt() / M;
     return start + Math.floor(randomUnder1 * rangeSize);
 }
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
-RNG.prototype.shuffleArray = function(array) {
-    for (let i = array.length - 1; i > 0; i--) {
+RNG.prototype.shuffleArray = function(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
         let j = this.nextRange(0, i + 1);
-        let temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+        [arr[i], arr[j]] = [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 }
 
