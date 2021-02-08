@@ -1,21 +1,39 @@
-let GRID_ROW = 5;
-let GRID_COL = 5;
-let SEED_LENGTH = 4;
+////////////
+// Constants
+////////////
+const GRID_ROW = 5;
+const GRID_COL = 5;
+const SEED_LENGTH = 4;
 
 // LCG using GCC's constants
-let M = 0x80000000; // 2**31;
-let A = 1103515245;
-let C = 12345;
+const M = 0x80000000; // 2**31;
+const A = 1103515245;
+const C = 12345;
 
-f = (x, a, c, m) => (x * A + C) % M;
-stringToSeed = function(seed) {
+
+////////
+// Utils
+////////
+let f = (x, a, c, m) => (x * A + C) % M;
+let stringToSeed = function(seed) {
     let x = 1;
     for (let i = 0; i < seed.length; i++) {
         x = f(x * seed.charCodeAt(i));
     }
     return x;
 }
+let getRandomSeed = function() {
+    let getRandomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
 
+    let letters = new Array(SEED_LENGTH).fill().map(getRandomLetter);
+    return letters.join("");
+};
+
+
+
+///////////////////////
+// Pseudo RNG functions
+///////////////////////
 RNG = function(seed) {
     this.state = seed ? seed : Math.floor(Math.random() * (M - 1));
 }
@@ -43,16 +61,12 @@ RNG.prototype.shuffleArray = function(arr) {
 }
 
 
+////////////////////////////////////////////
+// Main functions connected to the HTML view
+////////////////////////////////////////////
 let container = document.getElementById("container");
 let seedInput = document.getElementById("seed-input");
 let seedButton = document.getElementById("seed-button");
-
-let getRandomSeed = function() {
-    let getRandomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
-
-    let letters = new Array(SEED_LENGTH).fill().map(getRandomLetter);
-    return letters.join("");
-};
 
 let updateFields = function() {
     container.innerHTML = "";
@@ -88,6 +102,10 @@ let randomizeSeed = function() {
     randomizeFields(seed);
 };
 
+
+//////////////////////////////////
+// Code executed at initialization
+//////////////////////////////////
 randomizeSeed();
 
 seedInput.addEventListener('input', updateSeed);
