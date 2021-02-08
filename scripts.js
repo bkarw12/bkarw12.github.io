@@ -49,8 +49,6 @@ let container = document.getElementById("container");
 let seedInput = document.getElementById("seed-input");
 let seedButton = document.getElementById("seed-button");
 
-let fields = new Array(GRID_ROW * GRID_COL);
-
 let getRandomSeed = function() {
     let getRandomLetter = () => String.fromCharCode(65 + Math.floor(Math.random() * 26));
 
@@ -63,9 +61,15 @@ let updateFields = function() {
 };
 
 let randomizeFields = function(seed) {
-    let rng = new RNG(seed);
+    let rng = new RNG(stringToSeed(seed));
 
-    console.log(seed);
+    fields1 = new Array(GRID_ROW * GRID_COL).fill(0);
+    fields2 = new Array(GRID_ROW * GRID_COL).fill(0);
+
+    let ids = new Array(GRID_ROW * GRID_COL).fill().map((_, i) => i);
+    rng.shuffleArray(ids);
+
+    
 };
 
 let updateSeed = e => randomizeFields(e.target.value);
