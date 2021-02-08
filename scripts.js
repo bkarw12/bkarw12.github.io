@@ -67,7 +67,18 @@ let randomizeFields = function(seed) {
     let ids = new Array(GRID_ROW * GRID_COL).fill().map((_, i) => i);
     rng.shuffleArray(ids);
 
-    
+    // Setup the board
+    // Field values: N = 0 = neutral, G = 1 = good, B = 2 = bad
+    // We assign the values according to the shuffled ids, as below:
+    // P1 - 9xG, 5xN, 3xB, 8xN
+    // P2 - 1xB, 5xN, 9xG, 1xN, 1xB, 7xN, 1xB
+    // 0s are already assigned, we only need to do the 1s and 2s
+    for(let i = 0; i < 9; i++) {
+        fields1[ids[i]] = 1;
+        fields2[ids[i + 6]] = 1;
+    }
+    fields1[ids[14]] = fields1[ids[15]] = fields1[ids[16]] = 2;
+    fields2[ids[0]] = fields2[ids[16]] = fields2[ids[24]] = 2;
 };
 
 let updateSeed = e => randomizeFields(e.target.value);
