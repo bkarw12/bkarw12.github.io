@@ -1,4 +1,17 @@
 #container {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#input-container {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+#board {
     /* width: 50%; */
     width: 500px;
     height: 500px;
