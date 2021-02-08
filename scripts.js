@@ -38,6 +38,8 @@ RNG.prototype.nextRange = function(start, end) {
 
 let container = document.getElementById("container");
 let seedInput = document.getElementById("seed-input");
+let seedButton = document.getElementById("seed-button");
+
 let fields = new Array(GRID_ROW * GRID_COL);
 
 let getRandomSeed = function() {
@@ -58,8 +60,15 @@ let randomizeFields = function(seed) {
 };
 
 let updateSeed = e => randomizeFields(e.target.value);
+let randomizeSeed = function() {
+    seed = getRandomSeed();
+    seedInput.value = seed;
+    randomizeFields(seed);
+};
 
 let seed = getRandomSeed();
 seedInput.value = seed;
 randomizeFields(seed);
+
 seedInput.addEventListener('input', updateSeed);
+seedButton.addEventListener('click', randomizeSeed);
