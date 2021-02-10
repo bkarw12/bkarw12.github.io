@@ -4,8 +4,8 @@
     flex-direction: column;
 }
 
-#input-container {
-    margin: 20px auto;
+.input-container {
+    margin: 20px auto 0 auto;
     display: flex;
     flex-direction: row;
     align-content: center;

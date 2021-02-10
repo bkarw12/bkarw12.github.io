@@ -75,12 +75,16 @@ RNG.prototype.shuffleArray = function(arr) {
 let board = document.getElementById("board");
 let seedInput = document.getElementById("seed-input");
 let seedButton = document.getElementById("seed-button");
+let p1Button = document.getElementById("player1");
+let p2Button = document.getElementById("player2");
 
 let updateFields = function() {
     board.innerHTML = "";
 
+    let fields = p1 ? fields1 : fields2;
+
     for (let i = 0; i < GRID_SIZE; i++) {
-        board.innerHTML += '<div class="field" style="background-color:' + COLORS[fields1[i]] + ';"></div>';
+        board.innerHTML += '<div class="field" style="background-color:' + COLORS[fields[i]] + ';"></div>';
     }
 };
 
@@ -117,12 +121,18 @@ let randomizeSeed = function() {
     seedInput.value = seed;
     randomizeFields(seed);
 };
-
+let setPlayer = function(P1) {
+    p1 = P1;
+    updateFields();
+}
 
 //////////////////////////////////
 // Code executed at initialization
 //////////////////////////////////
+let p1 = true;
 randomizeSeed();
 
 seedInput.addEventListener('input', updateSeed);
 seedButton.addEventListener('click', randomizeSeed);
+p1Button.addEventListener('click', () => setPlayer(true));
+p2Button.addEventListener('click', () => setPlayer(false));
