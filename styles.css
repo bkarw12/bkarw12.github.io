@@ -14,17 +14,17 @@
 #board {
     width: 80%;
     max-width: 800px;
-    background-color: black;
+    background-color: darkgray;
     border-radius: 20px;
     margin: auto;
-    border: 3px solid black;
+    border: 3px solid darkgray;
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 20% 20% 20% 20% 20%;
 }
 
 .field {
-    border: 5px solid black;
+    border: 5px solid darkgray;
     border-radius: 20px;
     padding-top: 75%;
 }
