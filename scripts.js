@@ -117,7 +117,7 @@ let randomizeFields = function(seed) {
     updateFields();
 };
 
-let updateSeed = e => randomizeFields(e.target.value);
+let updateSeed = e => randomizeFields(e.target.value.toUpperCase());
 let randomizeSeed = function() {
     seed = getRandomSeed();
     seedInput.value = seed;
