@@ -112,6 +112,8 @@ let randomizeFields = function(seed) {
         fields2[ids[P2_B[i]]] = 2;
     }
 
+    fields2.reverse();
+
     updateFields();
 };
 
