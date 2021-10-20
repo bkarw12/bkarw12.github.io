@@ -11,6 +11,7 @@ const P1_B = [14, 15, 16];
 const P2_B = [0, 16, 24];
 
 const COLORS = ["beige", "green", "black"];
+const BUTTON_TEXT_COLORS = ["lightgray", "#f9aa33"];
 const SEED_LENGTH = 6;
 
 // LCG using GCC's constants
@@ -117,6 +118,11 @@ let randomizeFields = function(seed) {
     updateFields();
 };
 
+let setPlayerButton = function() {
+    p1Button.style.color = BUTTON_TEXT_COLORS[+ p1];
+    p2Button.style.color = BUTTON_TEXT_COLORS[1 - p1];
+}
+
 let updateSeed = e => randomizeFields(e.target.value.toUpperCase());
 let randomizeSeed = function() {
     seed = getRandomSeed();
@@ -125,6 +131,7 @@ let randomizeSeed = function() {
 };
 let setPlayer = function(P1) {
     p1 = P1;
+    setPlayerButton();
     updateFields();
 }
 
@@ -132,6 +139,7 @@ let setPlayer = function(P1) {
 // Code executed at initialization
 //////////////////////////////////
 let p1 = true;
+setPlayerButton();
 randomizeSeed();
 
 seedInput.addEventListener('input', updateSeed);
