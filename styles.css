@@ -5,10 +5,15 @@
 }
 
 .input-container {
-    margin: 20px auto 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
+    margin: 0 auto 0 auto;
+    padding: 1% 0 1% 0;
+    width: 80%;
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    background-color: red;
+    border: 6px solid darkgray;
+    border-radius: 20px;
 }
 
 #board {
@@ -27,4 +32,15 @@
     border: 5px solid darkgray;
     border-radius: 20px;
     padding-top: 75%;
+}
+
+input {
+    padding-top: 3%;
+    padding-bottom: 3%;
+    font-size: 3vw;
+    position: relative;
+    text-align: center;
+    border: 3px solid darkgray;
+    border-radius: 20px;
+    margin: 0 5% 1% 5%;
 }
