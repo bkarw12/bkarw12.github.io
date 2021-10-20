@@ -13,6 +13,18 @@ body {
     margin-top: 0;
 }
 
+#menu {
+    font-size: 5vw;
+    text-align: center;
+    color: lightgray;
+    font-weight: bold;
+    background-color: #4a6572;
+    width: 95%;
+    align-self: center;
+    margin-bottom: 1%;
+    border-radius: 20px;
+}
+
 .input-container {
     margin: 0 auto 0 auto;
     padding: 1% 0 1% 0;
@@ -28,17 +40,17 @@ body {
 #board {
     width: 95%;
     /* max-width: 800px; */
-    background-color: #5b7683;
+    background-color: #4a6572;
     border-radius: 20px;
     margin: auto;
-    border: 3px solid #5b7683;
+    border: 3px solid #4a6572;
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 20% 20% 20% 20% 20%;
 }
 
 .field {
-    border: 2px solid #4a6572;
+    border: 2px solid #395461;
     margin: 2px;
     border-radius: 20px;
     padding-top: 75%;
