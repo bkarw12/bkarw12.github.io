@@ -25,6 +25,33 @@ body {
     border-radius: 20px;
 }
 
+#help-icon #help-text {
+    visibility: hidden;
+    /* width: 120px; */
+    background-color: #6c8794;
+    border: 3px solid #233855;
+    border-radius: 20px;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 1%;
+    font-size: 2vw;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    left: 34%;
+    width: 30%;
+    top: 100px;
+    /* top: 0px; */
+    /* right: 0px; */
+    /* left: 60%; */
+}
+
+#help-icon:hover #help-text{
+    visibility: visible;
+}
+
 .input-container {
     margin: 0 auto 0 auto;
     padding: 1% 0 1% 0;
