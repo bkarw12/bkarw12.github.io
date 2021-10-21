@@ -14,7 +14,7 @@ body {
 }
 
 #menu {
-    font-size: 5vw;
+    font-size: 4vw;
     text-align: center;
     color: lightgray;
     font-weight: bold;
@@ -23,6 +23,18 @@ body {
     align-self: center;
     margin-bottom: 1%;
     border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#title {
+    margin-left: 2%;
+}
+
+#help-icon {
+    margin-right: 2%;
+    padding-top: 0.5%;
 }
 
 #help-icon #help-text {
