@@ -47,14 +47,16 @@ body {
     text-align: center;
     border-radius: 6px;
     padding: 1%;
-    font-size: 2vw;
+    font-size: medium;
 
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    left: 34%;
-    width: 30%;
+    left: 30%;
+    width: 38%;
+    max-width: 722px;
     top: 100px;
+    margin-left: -2px;
     /* top: 0px; */
     /* right: 0px; */
     /* left: 60%; */
