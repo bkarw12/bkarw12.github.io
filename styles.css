@@ -1,15 +1,15 @@
 :root {
+    --width-percent: 95%;
+    --max-width: 800px;
     --background-color: #232f34;
     --background-container: #344955;
     --background-container-darker: #233844;
-    --width-percent: 95%;
-    --max-width: 800px;
     --title-text-color: lightgray;
     --board-background-color: #4a6572;
     --board-background-color-lighter: #6c8794;
     --board-background-color-darker: #395461;
-    --border-radius: 20px;
     --input-text-color: #f5f5f5;
+    --border-radius: 20px;
 }
 
 body {
@@ -17,29 +17,29 @@ body {
 }
 
 #container {
-    margin: auto;
     display: flex;
     flex-direction: column;
-    background-color: var(--background-container);
     width: 80%;
     max-width: var(--max-width);
-    padding-top: 10px;
+    margin: auto;
     margin-top: 0;
+    padding-top: 10px;
+    background-color: var(--background-container);
 }
 
 #menu {
-    font-size: 4vw;
-    text-align: center;
-    color: var(--title-text-color);
-    font-weight: bold;
-    background-color: var(--board-background-color);
-    width: var(--width-percent);
-    align-self: center;
-    margin-bottom: 1%;
-    border-radius: var(--border-radius);
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: var(--width-percent);
+    align-self: center;
+    margin-bottom: 1%;
+    background-color: var(--board-background-color);
+    color: var(--title-text-color);
+    text-align: center;
+    font-size: 4vw;
+    font-weight: bold;
+    border-radius: var(--border-radius);
 }
 
 #title {
@@ -53,21 +53,20 @@ body {
 
 #help-icon #help-text {
     visibility: hidden;
+    padding: 1%;
     background-color: var(--board-background-color-lighter);
-    border: 3px solid var(--background-container-darker);
-    border-radius: 20px;
     color: var(--input-text-color);
     text-align: center;
-    border-radius: 6px;
-    padding: 1%;
     font-size: medium;
+    border: 3px solid var(--background-container-darker);
+    border-radius: 6px;
 
     /* Position the tooltip */
     position: absolute;
     z-index: 1;
-    left: 30%;
     width: 38%;
     max-width: 722px;
+    left: 30%;
     top: 100px;
     margin-left: -2px;
 }
@@ -80,44 +79,44 @@ body {
     visibility: visible;
 }
 
-.input-container {
-    margin: 0 auto 0 auto;
-    padding: 1% 0 1% 0;
-    width: var(--width-percent);
+#input-container {
     display: grid;
     grid-template-columns: 50% 50%;
+    width: var(--width-percent);
+    margin: 0 auto 0 auto;
+    padding: 1% 0 1% 0;
     background-color: var(--background-container);
     border-radius: var(--border-radius);
 }
 
 #board {
-    width: var(--width-percent);
-    background-color: var(--board-background-color);
-    border-radius: var(--border-radius);
-    margin: auto;
-    border: 3px solid var(--board-background-color);
     display: grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     grid-template-rows: 20% 20% 20% 20% 20%;
+    width: var(--width-percent);
+    margin: auto;
+    background-color: var(--board-background-color);
+    border: 3px solid var(--board-background-color);
+    border-radius: var(--border-radius);
 }
 
 .field {
-    border: 2px solid var(--board-background-color-darker);
     margin: 2px;
-    border-radius: var(--border-radius);
     padding-top: 75%;
+    border: 2px solid var(--board-background-color-darker);
+    border-radius: var(--border-radius);
 }
 
 input {
+    position: relative;
+    margin: 0 5% 2% 5%;
     padding-top: 3%;
     padding-bottom: 3%;
-    font-size: 3vw;
-    position: relative;
-    text-align: center;
-    border-radius: var(--border-radius);
-    margin: 0 5% 2% 5%;
     background-color: var(--board-background-color);
     color: var(--title-text-color);
+    text-align: center;
+    font-size: 3vw;
+    border-radius: var(--border-radius);
 }
 
 input[type=text] {
